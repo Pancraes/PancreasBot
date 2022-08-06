@@ -1,1 +1,1 @@
-worker: python PancreasBOT
+worker: python PancreasBOT.py
