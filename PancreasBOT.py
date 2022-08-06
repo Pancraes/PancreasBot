@@ -26,6 +26,6 @@ async def on_message(message):
         - {message.author}""")
  
     if message.content.lower().find("I would like to have some among us pictures please") != -1:
-            await message.channel.send(data["images"][random.randint(0, len(data["images"])-1)])
+            await message.channel.send(f"""|| {data["images"][random.randint(0, len(data["images"])-1} ||""")])
 
 client.run("//redacted bc its my bot token//")
