@@ -5,7 +5,7 @@ import random
 #https://discordapp.com/oauth2/authorize?client_id=1004603988282458113&scope=bot&permissions=8
 
 client = discord.Client()
-with open('data.json') as d:
+with open('PancreasBOTdata.json') as d:
     data = json.load(d)
 data["images"]
 
