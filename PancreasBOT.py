@@ -52,27 +52,27 @@ async def on_message(message):
         if message.content.lower().find("christmas") != -1:
             # est = timezone('EST')     (Read above)
             time = datetime.now()
-            nineEleven = datetime(datetime.now().year, 12, 25, 0, 0, 0, 0, )
-            diff = nineEleven-time
+            christmas = datetime(datetime.now().year, 12, 25, 0, 0, 0, 0, )
+            diff = christmas-time
                                                    
-             if time.month < nineEleven.month:
+             if time.month < christmas.month:
                     await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
                     await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
-                elif time.month == nineEleven.month:
-                    if time.day == nineEleven.day:
+                elif time.month == christmas.month:
+                    if time.day == christmas.day:
                         await message.channel.send("Today is christmas! (best holiday)")
                         await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
-                    elif time.day < nineEleven.day:
+                    elif time.day < christmas.day:
                         await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
                         await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
                     else:
-                        nineEleven = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
-                        diff = nineEleven-time
+                        christmas = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
+                        diff = christmas-time
                         await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
                         await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
                 else:
-                    nineEleven = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
-                    diff = nineEleven-time
+                    christmas = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
+                    diff = christmas-time
                     await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
                     await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
 
