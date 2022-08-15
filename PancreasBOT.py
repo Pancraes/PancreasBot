@@ -2,8 +2,10 @@ import discord
 import json
 import random
 import string
+# from pytz import timezone     
+# (this was added because heroku runs on GMT rather than EST but I can't change it because time delta cannot different timezone subtractions)
+# (if we run the code from the timezones we are from, than it would be from the timezones that we are from. But if we host the bot through heroku, it will be GMT)
 
-#https://discordapp.com/oauth2/authorize?client_id=1004603988282458113&scope=bot&permissions=8
 #git add ., git commit -am "ok", git push heroku master
 
 client = discord.Client()
@@ -46,5 +48,32 @@ async def on_message(message):
 
         if message.content.lower().find("I would like to have some among us pictures please") != -1:
                 await message.channel.send(f"""|| {data["images"][random.randint(0, len(data["images"])-1} ||""")])
+       
+        if message.content.lower().find("christmas") != -1:
+            # est = timezone('EST')     (Read above)
+            time = datetime.now()
+            nineEleven = datetime(datetime.now().year, 12, 25, 0, 0, 0, 0, )
+            diff = nineEleven-time
+                                                   
+             if time.month < nineEleven.month:
+                    await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
+                    await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
+                elif time.month == nineEleven.month:
+                    if time.day == nineEleven.day:
+                        await message.channel.send("Today is christmas! (best holiday)")
+                        await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
+                    elif time.day < nineEleven.day:
+                        await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
+                        await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
+                    else:
+                        nineEleven = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
+                        diff = nineEleven-time
+                        await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
+                        await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
+                else:
+                    nineEleven = datetime(datetime.now().year + 1, 12, 25, 0, 0, 0, 0)
+                    diff = nineEleven-time
+                    await message.channel.send(f"There are {diff.days} days, {int(diff.seconds/3600)} hours, {int(diff.seconds%3600/60)} minutes, {(diff.seconds%3600)%60} seconds, {diff.microseconds} microseconds until 9/11 (GMT) :pensive:")
+                    await message.channel.send("https://www.citypng.com/public/uploads/preview/-41603940812rethyhget8.png")
 
 client.run("//redacted bc its my bot token//")
