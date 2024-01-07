@@ -1,4 +1,4 @@
-PancreasBot
+### PancreasBot
 
 Bot Used to be up until Heroku (the thing I hosted my bot on) asked me to pay to keep my bot up
 
